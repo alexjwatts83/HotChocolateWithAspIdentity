@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace HotChocolateWithAspIdentity.Domain.Entities
+﻿namespace HotChocolateWithAspIdentity.Domain.Entities
 {
 	public enum PriorityLevel
 	{
