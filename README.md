@@ -1,5 +1,7 @@
 # Hot Chocolate With ASP.NET Identity
-A GraphQL app using Hot Chocolate, ASP.NET Identity and Entity Framework. Stuctured using clean architecture. 
+A GraphQL app using Hot Chocolate, ASP.NET Identity and Entity Framework. Stuctured using clean architecture.
+
+Essentially a copy of Clean Architecture but using GrapQL instead of a regular RESTful Api
 
 ## v1
 Use an interface implementing EF dbcontext
