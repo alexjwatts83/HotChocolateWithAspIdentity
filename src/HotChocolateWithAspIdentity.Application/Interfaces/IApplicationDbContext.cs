@@ -5,7 +5,6 @@ using System.Threading.Tasks;
 
 namespace HotChocolateWithAspIdentity.Application.Interfaces
 {
-
 	public interface IApplicationDbContext
 	{
 		DbSet<TodoList> TodoLists { get; set; }
