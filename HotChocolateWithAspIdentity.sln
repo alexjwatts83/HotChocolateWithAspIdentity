@@ -9,9 +9,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotChocolateWithAspIdentity.Domain", "src\HotChocolateWithAspIdentity.Domain\HotChocolateWithAspIdentity.Domain.csproj", "{82F34B5B-C35A-45F4-B439-BA3F638503AF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HotChocolateWithAspIdentity.Domain", "src\HotChocolateWithAspIdentity.Domain\HotChocolateWithAspIdentity.Domain.csproj", "{82F34B5B-C35A-45F4-B439-BA3F638503AF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotChocolateWithAspIdentity.Application", "src\HotChocolateWithAspIdentity.Application\HotChocolateWithAspIdentity.Application.csproj", "{DF5BADBD-7837-4A93-A03A-32FF6DF3EDF5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HotChocolateWithAspIdentity.Application", "src\HotChocolateWithAspIdentity.Application\HotChocolateWithAspIdentity.Application.csproj", "{DF5BADBD-7837-4A93-A03A-32FF6DF3EDF5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotChocolateWithAspIdentity.Infrastructure", "src\HotChocolateWithAspIdentity.Infrastructure\HotChocolateWithAspIdentity.Infrastructure.csproj", "{2EFF7963-F5E6-4765-8A47-E72715FBD8FD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{DF5BADBD-7837-4A93-A03A-32FF6DF3EDF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DF5BADBD-7837-4A93-A03A-32FF6DF3EDF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DF5BADBD-7837-4A93-A03A-32FF6DF3EDF5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2EFF7963-F5E6-4765-8A47-E72715FBD8FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2EFF7963-F5E6-4765-8A47-E72715FBD8FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2EFF7963-F5E6-4765-8A47-E72715FBD8FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2EFF7963-F5E6-4765-8A47-E72715FBD8FD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
