@@ -1,4 +1,8 @@
-﻿namespace HotChocolateWithAspIdentity.Infrastructure.Persistence
+﻿using HotChocolateWithAspIdentity.Domain.Entities;
+using Microsoft.EntityFrameworkCore;
+using System.Linq;
+
+namespace HotChocolateWithAspIdentity.Infrastructure.Persistence
 {
 	public class ApplicationDbContextInitialiser
 	{
@@ -7,6 +11,40 @@
 		public ApplicationDbContextInitialiser(ApplicationDbContext context)
 		{
 			_context = context;
+		}
+		public void Initialise()
+		{
+			if (_context.Database.IsSqlServer())
+			{
+				_context.Database.Migrate();
+			}
+			else
+			{
+				_context.Database.EnsureCreated();
+			}
+		}
+
+		public void Seed()
+		{
+			if (_context.TodoLists.Any())
+			{
+				return;
+			}
+
+			var list = new TodoList
+			{
+				Title = "Todo List",
+				Items =
+				{
+					new TodoItem { Title = "Make a todo list" },
+					new TodoItem { Title = "Check off the first item" },
+					new TodoItem { Title = "Realise you've already done two things on the list!"},
+					new TodoItem { Title = "Reward yourself with a nice, long nap" },
+				}
+			};
+
+			_context.TodoLists.Add(list);
+			_context.SaveChanges();
 		}
 	}
 }
