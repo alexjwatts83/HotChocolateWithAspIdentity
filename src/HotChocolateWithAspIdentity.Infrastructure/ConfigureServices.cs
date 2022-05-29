@@ -17,10 +17,10 @@ namespace HotChocolateWithAspIdentity.Infrastructure
 				options.UseSqlServer(
 					configuration.GetConnectionString("DefaultConnection")));
 
-			//services.AddScoped<IApplicationDbContext>(provider =>
-			//	provider.GetService<ApplicationDbContext>());
+			services.AddScoped<IApplicationDbContext>(provider =>
+				provider.GetService<ApplicationDbContext>());
 
-			//services.AddTransient<ApplicationDbContextInitialiser>();
+			services.AddTransient<ApplicationDbContextInitialiser>();
 
 			//services.AddDefaultIdentity<ApplicationUser>()
 			//	.AddEntityFrameworkStores<ApplicationDbContext>();
