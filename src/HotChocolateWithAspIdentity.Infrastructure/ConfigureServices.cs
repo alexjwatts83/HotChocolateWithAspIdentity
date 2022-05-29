@@ -1,4 +1,6 @@
 ﻿using HotChocolateWithAspIdentity.Application.Interfaces;
+using HotChocolateWithAspIdentity.Infrastructure.Persistence;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -11,9 +13,9 @@ namespace HotChocolateWithAspIdentity.Infrastructure
 			this IServiceCollection services,
 			IConfiguration configuration)
 		{
-			//services.AddDbContext<ApplicationDbContext>(options =>
-			//	options.UseSqlServer(
-			//		configuration.GetConnectionString("DefaultConnection")));
+			services.AddDbContext<ApplicationDbContext>(options =>
+				options.UseSqlServer(
+					configuration.GetConnectionString("DefaultConnection")));
 
 			//services.AddScoped<IApplicationDbContext>(provider =>
 			//	provider.GetService<ApplicationDbContext>());
