@@ -13,7 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HotChocolateWithAspIdentity
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HotChocolateWithAspIdentity.Application", "src\HotChocolateWithAspIdentity.Application\HotChocolateWithAspIdentity.Application.csproj", "{DF5BADBD-7837-4A93-A03A-32FF6DF3EDF5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotChocolateWithAspIdentity.Infrastructure", "src\HotChocolateWithAspIdentity.Infrastructure\HotChocolateWithAspIdentity.Infrastructure.csproj", "{2EFF7963-F5E6-4765-8A47-E72715FBD8FD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HotChocolateWithAspIdentity.Infrastructure", "src\HotChocolateWithAspIdentity.Infrastructure\HotChocolateWithAspIdentity.Infrastructure.csproj", "{2EFF7963-F5E6-4765-8A47-E72715FBD8FD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotChocolateWithAspIdentity.GraphQL", "src\HotChocolateWithAspIdentity.GraphQL\HotChocolateWithAspIdentity.GraphQL.csproj", "{D9C56698-B411-4BA4-ADFB-0D2D247EE07E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{2EFF7963-F5E6-4765-8A47-E72715FBD8FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2EFF7963-F5E6-4765-8A47-E72715FBD8FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2EFF7963-F5E6-4765-8A47-E72715FBD8FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D9C56698-B411-4BA4-ADFB-0D2D247EE07E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9C56698-B411-4BA4-ADFB-0D2D247EE07E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D9C56698-B411-4BA4-ADFB-0D2D247EE07E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D9C56698-B411-4BA4-ADFB-0D2D247EE07E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
