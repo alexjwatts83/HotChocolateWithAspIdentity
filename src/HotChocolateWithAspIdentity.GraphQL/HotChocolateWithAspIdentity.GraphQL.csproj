@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\HotChocolateWithAspIdentity.Application\HotChocolateWithAspIdentity.Application.csproj" />
     <ProjectReference Include="..\HotChocolateWithAspIdentity.Infrastructure\HotChocolateWithAspIdentity.Infrastructure.csproj" />
   </ItemGroup>
 
