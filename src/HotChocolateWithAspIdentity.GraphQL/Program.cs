@@ -30,8 +30,7 @@ namespace HotChocolateWithAspIdentity.GraphQL
 					var logger = services
 						.GetRequiredService<ILogger<Program>>();
 
-					logger.LogError(ex, "An error occurred while " +
-						"migrating or initializing the database.");
+					logger.LogError(ex, "An error occurred while migrating or initializing the database.");
 
 					throw;
 				}
