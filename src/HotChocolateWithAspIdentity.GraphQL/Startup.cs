@@ -1,3 +1,5 @@
+using HotChocolateWithAspIdentity.Application.Interfaces;
+using HotChocolateWithAspIdentity.GraphQL.Services;
 using HotChocolateWithAspIdentity.Infrastructure;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -27,6 +29,9 @@ namespace HotChocolateWithAspIdentity.GraphQL
 		public void ConfigureServices(IServiceCollection services)
         {
 			services.AddInfrastructureServices(_configuration);
+
+			services.AddHttpContextAccessor();
+			services.AddScoped<ICurrentUserService, CurrentUserService>();
 		}
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
