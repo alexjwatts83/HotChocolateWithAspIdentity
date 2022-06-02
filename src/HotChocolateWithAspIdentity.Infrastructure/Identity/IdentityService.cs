@@ -68,4 +68,3 @@ namespace HotChocolateWithAspIdentity.Infrastructure.Identity
 		}
 	}
 }
-}
