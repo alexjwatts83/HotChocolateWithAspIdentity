@@ -1,4 +1,5 @@
 using HotChocolateWithAspIdentity.Application.Interfaces;
+using HotChocolateWithAspIdentity.GraphQL.DependencyInjection;
 using HotChocolateWithAspIdentity.GraphQL.Services;
 using HotChocolateWithAspIdentity.Infrastructure;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -32,22 +33,7 @@ namespace HotChocolateWithAspIdentity.GraphQL
 			services.AddHttpContextAccessor();
 			services.AddScoped<ICurrentUserService, CurrentUserService>();
 
-			var signingKey = new SymmetricSecurityKey(
-			Encoding.UTF8.GetBytes("MySuperSecretKey"));
-
-			services
-				.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-				.AddJwtBearer(options =>
-				{
-					options.TokenValidationParameters =
-						new TokenValidationParameters
-						{
-							ValidIssuer = "https://auth.chillicream.com",
-							ValidAudience = "https://graphql.chillicream.com",
-							ValidateIssuerSigningKey = true,
-							IssuerSigningKey = signingKey
-						};
-				});
+			services.AddCustomAuthentication(_configuration);
 		}
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
