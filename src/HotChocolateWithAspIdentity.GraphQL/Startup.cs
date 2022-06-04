@@ -1,12 +1,15 @@
 using HotChocolateWithAspIdentity.Application.Interfaces;
 using HotChocolateWithAspIdentity.GraphQL.Services;
 using HotChocolateWithAspIdentity.Infrastructure;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 namespace HotChocolateWithAspIdentity.GraphQL
 {
@@ -28,6 +31,23 @@ namespace HotChocolateWithAspIdentity.GraphQL
 
 			services.AddHttpContextAccessor();
 			services.AddScoped<ICurrentUserService, CurrentUserService>();
+
+			var signingKey = new SymmetricSecurityKey(
+			Encoding.UTF8.GetBytes("MySuperSecretKey"));
+
+			services
+				.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+				.AddJwtBearer(options =>
+				{
+					options.TokenValidationParameters =
+						new TokenValidationParameters
+						{
+							ValidIssuer = "https://auth.chillicream.com",
+							ValidAudience = "https://graphql.chillicream.com",
+							ValidateIssuerSigningKey = true,
+							IssuerSigningKey = signingKey
+						};
+				});
 		}
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -40,7 +60,9 @@ namespace HotChocolateWithAspIdentity.GraphQL
 
             app.UseRouting();
 
-            app.UseEndpoints(endpoints =>
+			app.UseAuthentication();
+
+			app.UseEndpoints(endpoints =>
             {
                 endpoints.MapGet("/", async context =>
                 {
