@@ -11,5 +11,7 @@ namespace HotChocolateWithAspIdentity.Application.Services
 			string password);
 
 		Task<Result> DeleteUserAsync(string userId);
+
+		Task<string> Authenticate(string email, string password);
 	}
 }
