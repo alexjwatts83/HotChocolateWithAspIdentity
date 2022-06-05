@@ -1,7 +1,13 @@
 ﻿using HotChocolateWithAspIdentity.Application.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
+using System;
+using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
+using System.Security.Claims;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace HotChocolateWithAspIdentity.Infrastructure.Identity
@@ -55,6 +61,37 @@ namespace HotChocolateWithAspIdentity.Infrastructure.Identity
 			var result = await _userManager.DeleteAsync(user);
 
 			return result.ToApplicationResult();
+		}
+
+		public async Task<string> Authenticate(string email, string password)
+		{
+			throw new System.NotImplementedException();
+		}
+
+		private string GenerateAccessToken(string email, string userId, string[] roles)
+		{
+			var key = new SymmetricSecurityKey(
+				Encoding.UTF8.GetBytes("secretsecretsecret"));
+
+			var claims = new List<Claim>
+			{
+				new Claim(ClaimTypes.NameIdentifier, userId),
+				new Claim(ClaimTypes.Name, email)
+			};
+
+			claims = claims.Concat(roles.Select(role => new Claim(ClaimTypes.Role, role))).ToList();
+
+
+			var signingCredentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+
+			var token = new JwtSecurityToken(
+				"issuer",
+				"audience",
+				claims,
+				expires: DateTime.Now.AddDays(90),
+				signingCredentials: signingCredentials);
+
+			return new JwtSecurityTokenHandler().WriteToken(token);
 		}
 	}
 
