@@ -1,6 +1,4 @@
-using HotChocolateWithAspIdentity.Application.Interfaces;
 using HotChocolateWithAspIdentity.GraphQL.DependencyInjection;
-using HotChocolateWithAspIdentity.GraphQL.Services;
 using HotChocolateWithAspIdentity.Infrastructure;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -26,9 +24,6 @@ namespace HotChocolateWithAspIdentity.GraphQL
 		public void ConfigureServices(IServiceCollection services)
         {
 			services.AddInfrastructureServices(_configuration);
-
-			services.AddHttpContextAccessor();
-			services.AddScoped<ICurrentUserService, CurrentUserService>();
 
 			services.AddCustomAuthentication(_configuration);
 

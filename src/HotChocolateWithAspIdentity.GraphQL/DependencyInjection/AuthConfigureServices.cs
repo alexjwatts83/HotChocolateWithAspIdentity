@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+﻿using HotChocolateWithAspIdentity.Application.Interfaces;
+using HotChocolateWithAspIdentity.GraphQL.Services;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
@@ -12,6 +14,9 @@ namespace HotChocolateWithAspIdentity.GraphQL.DependencyInjection
 			this IServiceCollection services,
 			IConfiguration configuration)
 		{
+			services.AddHttpContextAccessor();
+			services.AddScoped<ICurrentUserService, CurrentUserService>();
+
 			var key = configuration["SupesSecretKey"];
 			var signingKey = new SymmetricSecurityKey(
 				Encoding.UTF8.GetBytes(key));
