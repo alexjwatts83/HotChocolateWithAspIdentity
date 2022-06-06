@@ -19,19 +19,28 @@ namespace HotChocolateWithAspIdentity.GraphQL.DependencyInjection
 			var signingKey = new SymmetricSecurityKey(
 				Encoding.UTF8.GetBytes("MySuperSecretKey"));
 
-			services
-				.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-				.AddJwtBearer(options =>
+			services.AddAuthentication(options =>
+			{
+				options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+				options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+				options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+			}).AddJwtBearer(options =>
+			{
+				options.TokenValidationParameters = new TokenValidationParameters
 				{
-					options.TokenValidationParameters =
-						new TokenValidationParameters
-						{
-							ValidIssuer = "https://auth.chillicream.com",
-							ValidAudience = "https://graphql.chillicream.com",
-							ValidateIssuerSigningKey = true,
-							IssuerSigningKey = signingKey
-						};
-				});
+					ValidateAudience = true,
+					ValidateIssuer = true,
+					ValidateIssuerSigningKey = true,
+					ValidAudience = "audience",
+					ValidIssuer = "issuer",
+					RequireSignedTokens = false,
+					IssuerSigningKey =
+						new SymmetricSecurityKey(Encoding.UTF8.GetBytes("secretsecretsecret"))
+				};
+
+				options.RequireHttpsMetadata = false;
+				options.SaveToken = true;
+			});
 
 			return services;
 		}
