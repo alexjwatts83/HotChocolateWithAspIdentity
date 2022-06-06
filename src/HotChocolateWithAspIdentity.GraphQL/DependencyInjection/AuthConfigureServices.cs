@@ -12,8 +12,9 @@ namespace HotChocolateWithAspIdentity.GraphQL.DependencyInjection
 			this IServiceCollection services,
 			IConfiguration configuration)
 		{
+			var key = configuration["SupesSecretKey"];
 			var signingKey = new SymmetricSecurityKey(
-				Encoding.UTF8.GetBytes("MySuperSecretKey"));
+				Encoding.UTF8.GetBytes(key));
 
 			services.AddAuthentication(options =>
 			{
