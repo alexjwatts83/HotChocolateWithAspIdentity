@@ -12,7 +12,10 @@ Essentially a copy of Clean Architecture but using GrapQL instead of a regular R
 This app consists of 4 Projects
 
 ## Domain
-A simple project containing the simple entities used for the project
+A simple project containing the simple entities used for the project.
+
+## Application
+A simple project containing the interfaces that the project will need and some additional models.
 
 ## GraphQL
 `dotnet ef database update --project src/HotChocolateWithAspIdentity.Infrastructure -s src/HotChocolateWithAspIdentity.GraphQL`
