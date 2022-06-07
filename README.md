@@ -11,6 +11,9 @@ Essentially a copy of Clean Architecture but using GrapQL instead of a regular R
 ### Update
 `dotnet ef database update --project src/HotChocolateWithAspIdentity.Infrastructure -s src/HotChocolateWithAspIdentity.GraphQL`
 
+## GraphQL Project
+Is meant to be the main project which is a GraphQL project using Hot Chocolate
+
 ## v1
 Use an interface implementing EF dbcontext
 
