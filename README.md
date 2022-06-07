@@ -8,7 +8,13 @@ Essentially a copy of Clean Architecture but using GrapQL instead of a regular R
 ### Add Migration
 `dotnet ef migrations add Init --project src/HotChocolateWithAspIdentity.Infrastructure -s src/HotChocolateWithAspIdentity.GraphQL`
 
-### Update
+## Projects
+This app consists of 4 Projects
+
+## Domain
+A simple project containing the simple entities used for the project
+
+## GraphQL
 `dotnet ef database update --project src/HotChocolateWithAspIdentity.Infrastructure -s src/HotChocolateWithAspIdentity.GraphQL`
 
 ## GraphQL Project
