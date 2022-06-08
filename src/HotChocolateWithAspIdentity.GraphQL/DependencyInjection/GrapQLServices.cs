@@ -1,5 +1,7 @@
 ﻿using HotChocolateWithAspIdentity.Application.Interfaces;
+using HotChocolateWithAspIdentity.Application.Services;
 using HotChocolateWithAspIdentity.GraphQL.Services;
+using HotChocolateWithAspIdentity.Infrastructure.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -13,6 +15,7 @@ namespace HotChocolateWithAspIdentity.GraphQL.DependencyInjection
 		{
 			services.AddHttpContextAccessor();
 			services.AddScoped<ICurrentUserService, CurrentUserService>();
+			services.AddScoped<IIdentityService, IdentityService>();
 			services.AddDatabaseDeveloperPageExceptionFilter();
 			return services;
 		}
