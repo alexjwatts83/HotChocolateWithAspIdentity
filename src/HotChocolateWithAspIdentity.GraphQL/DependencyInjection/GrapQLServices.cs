@@ -17,6 +17,9 @@ namespace HotChocolateWithAspIdentity.GraphQL.DependencyInjection
 			services.AddScoped<ICurrentUserService, CurrentUserService>();
 			services.AddScoped<IIdentityService, IdentityService>();
 			services.AddDatabaseDeveloperPageExceptionFilter();
+
+			services
+				.AddGraphQLServer();
 			return services;
 		}
 	}
