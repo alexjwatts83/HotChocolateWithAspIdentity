@@ -4,7 +4,7 @@ A GraphQL app using Hot Chocolate, ASP.NET Identity and Entity Framework. Stuctu
 Essentially a copy of Clean Architecture but using GrapQL instead of a regular RESTful Api
 
 ## EF
-The app uses Entity Framework Core and uses the `DbContext` directly.
+The app uses Entity Framework Core and uses an interface implementing EF `DbContext`.
 
 ### Add Migration
 `dotnet ef migrations add Init --project src/HotChocolateWithAspIdentity.Infrastructure -s src/HotChocolateWithAspIdentity.GraphQL`
@@ -13,7 +13,7 @@ The app uses Entity Framework Core and uses the `DbContext` directly.
 `dotnet ef database update --project src/HotChocolateWithAspIdentity.Infrastructure -s src/HotChocolateWithAspIdentity.GraphQL`
 
 ## Projects
-This app consists of 4 Projects
+This app consists of 4 Projects.
 
 ### Domain
 A simple project containing the simple entities used for the project.
@@ -25,10 +25,13 @@ A simple project containing the interfaces that the project will need and some a
 A project u
 
 ### GraphQL Project
-Is meant to be the main project which is a GraphQL project using Hot Chocolate
+Is meant to be the main project which is a GraphQL project using Hot Chocolate.
 
-## v1
-Use an interface implementing EF dbcontext
+## v1.0
+Use an interface implementing EF `DbContext`.
 
-## v2
+### v1.1
+Use Services.
+
+## v2.0
 Use Mediatr
