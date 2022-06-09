@@ -18,30 +18,31 @@ namespace HotChocolateWithAspIdentity.GraphQL.DependencyInjection
 			services.AddScoped<ICurrentUserService, CurrentUserService>();
 
 			var key = configuration["SupesSecretKey"];
-			var signingKey = new SymmetricSecurityKey(
-				Encoding.UTF8.GetBytes(key));
+			var signingKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(key));
 
-			services.AddAuthentication(options =>
-			{
-				options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-				options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-				options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
-			}).AddJwtBearer(options =>
-			{
-				options.TokenValidationParameters = new TokenValidationParameters
+			services
+				.AddAuthentication(options =>
 				{
-					ValidateAudience = true,
-					ValidateIssuer = true,
-					ValidateIssuerSigningKey = true,
-					ValidAudience = "audience",
-					ValidIssuer = "issuer",
-					RequireSignedTokens = false,
-					IssuerSigningKey = signingKey
-				};
+					options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+					options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+					options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+				})
+				.AddJwtBearer(options =>
+				{
+					options.TokenValidationParameters = new TokenValidationParameters
+					{
+						ValidateAudience = true,
+						ValidateIssuer = true,
+						ValidateIssuerSigningKey = true,
+						ValidAudience = "audience",
+						ValidIssuer = "issuer",
+						RequireSignedTokens = false,
+						IssuerSigningKey = signingKey
+					};
 
-				options.RequireHttpsMetadata = false;
-				options.SaveToken = true;
-			});
+					options.RequireHttpsMetadata = false;
+					options.SaveToken = true;
+				});
 
 			return services;
 		}
