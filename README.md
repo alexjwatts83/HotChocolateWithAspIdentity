@@ -22,7 +22,13 @@ A simple project containing the simple entities used for the project.
 A simple project containing the interfaces that the project will need and some additional models.
 
 ### Infrastructure
-A project u
+A project for the infrastructure of both Persistence and Identity. Essentially allot of code services.
+
+#### Identity
+Intended to use ASP.NET identity.
+
+#### Persistence
+Intended to use for EntityFramework.
 
 ### GraphQL Project
 Is meant to be the main project which is a GraphQL project using Hot Chocolate.
