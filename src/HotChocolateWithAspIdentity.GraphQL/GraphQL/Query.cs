@@ -15,5 +15,12 @@ namespace HotChocolateWithAspIdentity.GraphQL.GraphQL
 		{
 			return context.TodoLists;
 		}
+
+		[UseDbContext(typeof(ApplicationDbContext))]
+		[GraphQLDescription("Gets the queryable TodoItem.")]
+		public IQueryable<TodoItem> GetTodoItems([ScopedService] ApplicationDbContext context)
+		{
+			return context.TodoItems;
+		}
 	}
 }
