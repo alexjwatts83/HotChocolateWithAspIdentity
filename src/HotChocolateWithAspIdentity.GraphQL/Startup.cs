@@ -27,9 +27,7 @@ namespace HotChocolateWithAspIdentity.GraphQL
 
 			services.AddCustomAuthentication(_configuration);
 
-			services
-				.AddGraphQLServer()
-				.AddAuthorization();
+			services.AddCustomGraphQL(_configuration);
 		}
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -42,7 +40,7 @@ namespace HotChocolateWithAspIdentity.GraphQL
 
             app.UseRouting();
 
-			app.UseAuthentication();
+			//app.UseAuthentication();
 
 			app.UseEndpoints(endpoints =>
             {
