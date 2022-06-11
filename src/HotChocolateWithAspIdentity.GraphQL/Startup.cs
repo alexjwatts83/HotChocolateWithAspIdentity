@@ -1,3 +1,4 @@
+using GraphQL.Server.Ui.Voyager;
 using HotChocolateWithAspIdentity.GraphQL.DependencyInjection;
 using HotChocolateWithAspIdentity.Infrastructure;
 using Microsoft.AspNetCore.Builder;
@@ -43,12 +44,14 @@ namespace HotChocolateWithAspIdentity.GraphQL
 			//app.UseAuthentication();
 
 			app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapGet("/", async context =>
-                {
-                    await context.Response.WriteAsync("Hello World!");
-                });
-            });
-        }
+			{
+				endpoints.MapGraphQL();
+			});
+
+			app.UseGraphQLVoyager(new VoyagerOptions()
+			{
+				GraphQLEndPoint = "/graphql"
+			}, "/graphql-voyager");
+		}
     }
 }

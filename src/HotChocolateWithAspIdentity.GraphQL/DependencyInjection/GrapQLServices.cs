@@ -1,5 +1,6 @@
 ﻿using HotChocolateWithAspIdentity.Application.Interfaces;
 using HotChocolateWithAspIdentity.Application.Services;
+using HotChocolateWithAspIdentity.GraphQL.GraphQL;
 using HotChocolateWithAspIdentity.GraphQL.Services;
 using HotChocolateWithAspIdentity.Infrastructure.Identity;
 using Microsoft.Extensions.Configuration;
@@ -19,7 +20,8 @@ namespace HotChocolateWithAspIdentity.GraphQL.DependencyInjection
 			services.AddDatabaseDeveloperPageExceptionFilter();
 
 			services
-				.AddGraphQLServer();
+				.AddGraphQLServer()
+				.AddQueryType<Query>();
 			return services;
 		}
 	}
