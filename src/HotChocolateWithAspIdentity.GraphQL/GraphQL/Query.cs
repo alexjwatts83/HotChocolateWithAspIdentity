@@ -10,10 +10,8 @@ namespace HotChocolateWithAspIdentity.GraphQL.GraphQL
 	public class Query
 	{
 		[UseDbContext(typeof(ApplicationDbContext))]
-		//[UseFiltering]
-		//[UseSorting]
 		[GraphQLDescription("Gets the queryable TodoLists.")]
-		public IQueryable<TodoList> GetPlatform([ScopedService] ApplicationDbContext context)
+		public IQueryable<TodoList> GetTodoLists([ScopedService] ApplicationDbContext context)
 		{
 			return context.TodoLists;
 		}
