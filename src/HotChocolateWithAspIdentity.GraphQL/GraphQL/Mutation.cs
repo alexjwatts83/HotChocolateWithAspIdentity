@@ -14,21 +14,20 @@ namespace HotChocolateWithAspIdentity.GraphQL.GraphQL
 	[GraphQLDescription("Represents the mutations available.")]
 	public class Mutation
 	{
-		//[UseDbContext(typeof(ApplicationDbContext))]
-		//[GraphQLDescription("Adds a command.")]
-		//public async Task<AddTodoListsPayload> AddToListItemAsync(AddTodoListsPayload input, [ScopedService] ApplicationDbContext context)
-		//{
-		//	var command = new Command
-		//	{
-		//		HowTo = input.HowTo,
-		//		CommandLine = input.CommandLine,
-		//		PlatformId = input.PlatformId
-		//	};
+		[UseDbContext(typeof(ApplicationDbContext))]
+		[GraphQLDescription("Add a single Todo List with no items.")]
+		public async Task<AddTodoListsPayload> AddToListItemAsync(AddCommandInput input, [ScopedService] ApplicationDbContext context)
+		{
+			var item = new TodoList
+			{
+				Title = input.Title,
+				Colour = input.Colour
+			};
 
-		//	context.Commands.Add(command);
-		//	await context.SaveChangesAsync();
+			context.TodoLists.Add(item);
+			await context.SaveChangesAsync();
 
-		//	return new AddCommandPayload(command);
-		//}
+			return new AddTodoListsPayload(item);
+		}
 	}
 }
