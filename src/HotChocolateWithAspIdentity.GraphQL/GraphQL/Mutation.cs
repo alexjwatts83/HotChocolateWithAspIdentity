@@ -8,7 +8,6 @@ using System.Threading.Tasks;
 
 namespace HotChocolateWithAspIdentity.GraphQL.GraphQL
 {
-	public record AddTodoListInput(string Title, string Colour, IEnumerable<AddTodoItemInput> Items);
 	public record AddTodoListsPayload(TodoList TodoList);
 	[GraphQLDescription("Represents the mutations available.")]
 	public class Mutation
