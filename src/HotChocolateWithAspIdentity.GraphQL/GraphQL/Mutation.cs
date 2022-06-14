@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace HotChocolateWithAspIdentity.GraphQL.GraphQL
 {
-	public record AddCommandInput(string Title, string Colour);
+	public record AddTodoListInput(string Title, string Colour);
 	public record AddTodoListsPayload(TodoList TodoList);
 	[GraphQLDescription("Represents the mutations available.")]
 	public class Mutation
 	{
 		[UseDbContext(typeof(ApplicationDbContext))]
 		[GraphQLDescription("Add a single Todo List with no items.")]
-		public async Task<AddTodoListsPayload> AddToListItemAsync(AddCommandInput input, [ScopedService] ApplicationDbContext context)
+		public async Task<AddTodoListsPayload> AddToListItemAsync(AddTodoListInput input, [ScopedService] ApplicationDbContext context)
 		{
 			var item = new TodoList
 			{
