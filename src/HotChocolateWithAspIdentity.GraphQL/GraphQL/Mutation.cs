@@ -3,12 +3,13 @@ using HotChocolate.Data;
 using HotChocolateWithAspIdentity.Domain.Entities;
 using HotChocolateWithAspIdentity.Infrastructure.Persistence;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace HotChocolateWithAspIdentity.GraphQL.GraphQL
 {
 	public record AddTodoItemInput(int ListId, string Title, string Note, bool Done, DateTime? Reminder, PriorityLevel Priority);
-	public record AddTodoListInput(string Title, string Colour);
+	public record AddTodoListInput(string Title, string Colour, IEnumerable<AddTodoItemInput> Items);
 	public record AddTodoListsPayload(TodoList TodoList);
 	[GraphQLDescription("Represents the mutations available.")]
 	public class Mutation
