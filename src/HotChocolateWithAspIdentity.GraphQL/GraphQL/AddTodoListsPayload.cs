@@ -8,5 +8,6 @@ using System.Threading.Tasks;
 
 namespace HotChocolateWithAspIdentity.GraphQL.GraphQL
 {
+	[GraphQLDescription("Todo List Payload.")]
 	public record AddTodoListsPayload(TodoList TodoList);
 }
