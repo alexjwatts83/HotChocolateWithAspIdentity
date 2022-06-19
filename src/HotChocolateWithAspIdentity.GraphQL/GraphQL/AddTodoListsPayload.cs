@@ -3,6 +3,6 @@ using HotChocolateWithAspIdentity.Domain.Entities;
 
 namespace HotChocolateWithAspIdentity.GraphQL.GraphQL
 {
-	[GraphQLDescription("Todo List PayloadAdd.")]
+	[GraphQLDescription("Add Todo List Payload.")]
 	public record AddTodoListsPayload(TodoList TodoList);
 }
