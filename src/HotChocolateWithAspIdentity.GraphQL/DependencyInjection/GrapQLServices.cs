@@ -21,7 +21,9 @@ namespace HotChocolateWithAspIdentity.GraphQL.DependencyInjection
 
 			services
 				.AddGraphQLServer()
-				.AddQueryType<Query>();
+				.AddQueryType<Query>()
+				.AddMutationType<Mutation>();
+
 			return services;
 		}
 	}
