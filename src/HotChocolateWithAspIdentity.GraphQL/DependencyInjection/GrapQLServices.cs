@@ -3,7 +3,6 @@ using HotChocolateWithAspIdentity.Application.Services;
 using HotChocolateWithAspIdentity.GraphQL.GraphQL;
 using HotChocolateWithAspIdentity.GraphQL.Services;
 using HotChocolateWithAspIdentity.Infrastructure.Identity;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace HotChocolateWithAspIdentity.GraphQL.DependencyInjection
