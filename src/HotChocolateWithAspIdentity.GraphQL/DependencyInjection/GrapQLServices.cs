@@ -11,8 +11,7 @@ namespace HotChocolateWithAspIdentity.GraphQL.DependencyInjection
 	public static class GrapQLServices
 	{
 		public static IServiceCollection AddCustomGraphQL(
-			this IServiceCollection services,
-			IConfiguration configuration)
+			this IServiceCollection services)
 		{
 			services.AddHttpContextAccessor();
 			services.AddScoped<ICurrentUserService, CurrentUserService>();
